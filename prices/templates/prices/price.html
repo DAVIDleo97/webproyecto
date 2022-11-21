@@ -1,0 +1,39 @@
+    {% extends 'core/base.html' %}
+    {%load static%}
+    {%block title%}Precios y servicios{%endblock%}
+
+    {%block content%}
+
+    <hr>
+    <br>
+
+    <!-- Page Header Start -->
+    <!-- Page Header End -->
+    <div class="container text-center">
+        <h4 class="text-success text-uppercase mb-2">Precios y Servicios</h4>
+        <h2 class="display-10 mb-6, text-center">Estamos para servirte y solucionar la movilidad desde la ciudad de Tulcán hacia la ciudad de Quito o Viceversa.</h2>
+    </div>
+    <!-- Courses Start -->
+    <div class="container-xxl py-6">
+        <div class="container">
+            
+            <div class="row g-4 justify-content-center">
+                {%for price in prices%}
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="courses-item d-flex flex-column bg-light overflow-hidden h-100">
+                            <div class="text-center p-4 pt-0">
+                                <div class="d-inline-block bg-info text-white fs-5 py-1 px-4 mb-4">${{price.cost}}</div>
+                                <h3 class="mb-3">{{price.title}}</h3>
+                                <h6 class="mb-3">{{price.subtitle}}</h6>
+                                <p>{{price.content|linebreaks}}</p>
+                            </div>
+                            <img src="{{price.image.url}}" alt="error">
+                        </div>
+                    </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+    <!-- Courses End -->
+
+    {%endblock%}
